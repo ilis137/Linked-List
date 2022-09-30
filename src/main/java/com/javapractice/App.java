@@ -93,7 +93,7 @@ public class App {
     public void demonstrateInsertNodeAfter() {
         int itemToAdd = 40;
         int itemToSearch = 30;
-        log.info("printing list 6 with appended items");
+        log.info("printing list 6");
         list.print();
 
         boolean success = list.insertAfter(itemToSearch, itemToAdd);
@@ -107,6 +107,22 @@ public class App {
         list.print();
     }
 
+    public void demonstrateDeleteItem() {
+        int itemToDelete = 40;
+
+        log.info("printing list 6");
+        list.print();
+        boolean success = list.delete(itemToDelete);
+
+        if (success) {
+            log.info("item " + itemToDelete + "  found. " + itemToDelete + " successfully deleted.");
+        } else {
+            log.info("item " + itemToDelete + " not found. unable to delete item " + itemToDelete );
+        }
+        log.info("printing list 6 after delete operation");
+        list.print();
+    }
+
     public static void main(String[] args) {
         App app = new App();
         app.demonstrateAddNode();
@@ -116,5 +132,6 @@ public class App {
         app.demonstrateDeleteLastNode();
         app.demonstrateSearchItem();
         app.demonstrateInsertNodeAfter();
+        app.demonstrateDeleteItem();
     }
 }

@@ -111,6 +111,25 @@ public class LinkedList<T> {
     return deletedItem;
   }
 
+  public boolean delete(T itemToDelete){
+    Node<T> foundNode = this.searchItem(itemToDelete);
+    log.info("deleting item "+itemToDelete+" in list 6");
+    Node<T> firstNode=null;
+    Node<T> secondNode=head;
+    if(foundNode!=null){
+      while (secondNode!=null&&!secondNode.getData().equals(foundNode.getData())) {
+        firstNode = secondNode;
+        secondNode = secondNode.getNext();
+      }  
+      firstNode.setNext(secondNode.getNext());
+      secondNode.setNext(null);
+      return true;
+    }
+    
+    return false;
+
+  }
+
   public Node<T> searchItem(T item) {
     Node<T> temp = head;
     if (this.isEmpty())
@@ -124,6 +143,7 @@ public class LinkedList<T> {
     return null;
   }
 
+  
   public void print() {
     if (this.isEmpty()) {
       log.info("List is empty!");
