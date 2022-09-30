@@ -20,5 +20,14 @@ public class App {
         list2.append(70);
         log.info("printing list 2 with appended items");
         list2.print();
+
+        LinkedList<Integer> list3=new LinkedList<Integer>();
+        list3.append(56);
+        list3.append(70);
+        log.info("printing list 3 with appended items");
+        list3.print();
+        list3.insert(30, 2);
+        log.info("printing list 3 after inserting item at 2nd position");
+        list3.print();
     }
 }
