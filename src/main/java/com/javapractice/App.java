@@ -5,41 +5,80 @@ import org.apache.logging.log4j.Logger;
 
 public class App {
   private static final Logger log = LogManager.getLogger(App.class);
+  LinkedList<Integer> list;
+  
+  public void demonstrateAddNode(){
+    
+    list=new LinkedList<Integer>();
+    list.add(70);
+    list.add(30);
+    list.add(56);
+    log.info("printing list 1 with added items");
+    list.print();
+  }
 
-    public static void main( String[] args ){
-        LinkedList<Integer> list1=new LinkedList<Integer>();
-        list1.add(70);
-        list1.add(30);
-        list1.add(56);
-        log.info("printing list 1 with added items");
-        list1.print();
-
-        LinkedList<Integer> list2=new LinkedList<Integer>();
-        list2.append(56);
-        list2.append(30);
-        list2.append(70);
+  public void demonstrateAppendNode(){
+    list=new LinkedList<Integer>();
+        list.append(56);
+        list.append(30);
+        list.append(70);
         log.info("printing list 2 with appended items");
-        list2.print();
+        list.print();
+  }
 
-        LinkedList<Integer> list3=new LinkedList<Integer>();
-        list3.append(56);
-        list3.append(70);
-        log.info("printing list 3 with appended items");
-        list3.print();
-        list3.insert(30, 2);
-        log.info("printing list 3 after inserting item at 2nd position");
-        list3.print();
+  public void demonstrateInsertNode(){
+    list=new LinkedList<Integer>();
+    list.append(56);
+    list.append(70);
+    log.info("printing list 3 with appended items");
+    list.print();
+    list.insert(30, 2);
+    log.info("printing list 3 after inserting item at 2nd position");
+    list.print();
+  }
 
-
-        LinkedList<Integer> list4=new LinkedList<Integer>();
-        list4.append(56);
-        list4.append(30);
-        list4.append(70);
-        log.info("printing list 4 with appended items");
-        list4.print();
-        log.info("deleting first node");
-        int deletedItem=list4.pop();
+  public void demonstrateDeleteFirstNode(){
+    list=new LinkedList<Integer>();
+    list.append(56);
+    list.append(30);
+    list.append(70);
+    log.info("printing list 4 with appended items");
+    list.print();
+    log.info("deleting first node");
+    int deletedItem=list.pop();
+    if(deletedItem==-1){
+        log.info("list is empty");
+    }else{
         log.info(deletedItem+" is deleted");
-        list4.print();
+        log.info("list after deleting "+deletedItem);
+        list.print();
+    }
+  }
+
+
+  public void demonstrateDeleteLastNode(){
+    list=new LinkedList<Integer>();
+        list.append(56);
+        list.append(30);
+        list.append(70);
+        log.info("printing list 5 with appended items");
+        list.print();
+        log.info("deleting last node");
+        int deletedItem=list.popLast();
+        if(deletedItem==-1){
+            log.info("list 5 is empty");
+        }else{
+            log.info(deletedItem+" is deleted");
+            log.info("list 5 after deleting "+deletedItem);
+            list.print();
+        }
+  }
+    public static void main( String[] args ){
+        App app=new App();
+        app.demonstrateAddNode();
+        app.demonstrateAppendNode();
+        app.demonstrateInsertNode();
+        app.demonstrateDeleteFirstNode();
+        app.demonstrateDeleteLastNode();
     }
 }

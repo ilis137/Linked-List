@@ -70,10 +70,31 @@ public class LinkedList<T> {
   }
 
   public int pop(){
+    if(isEmpty()){
+      return -1;
+    }
     Node<T> temp=head;
     head=head.getNext();
     temp.setNext(null);
     return (int)temp.getData();
+  }
+
+
+  public int popLast(){
+    Node<T> temp=head;
+    if(isEmpty()){
+      return -1;
+    }
+    if(temp.getNext()==null){
+      head=null;
+      return (int)temp.getData();
+    }
+    while(temp.getNext().getNext()!=null){
+      temp=temp.getNext();
+    }
+    int deletedItem=(int)temp.getNext().getData();
+    temp.setNext(null);
+    return deletedItem;
   }
 
   public void print() {
