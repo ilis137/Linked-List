@@ -81,6 +81,7 @@ public class App {
         log.info("printing list 6 with appended items");
         list.print();
         int item=30;
+        log.info("searching item"+item);
        Node<Integer> node= list.searchItem(item);
        if(node==null){
         log.info("item "+item+ " not found");
