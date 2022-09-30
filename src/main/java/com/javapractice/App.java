@@ -121,6 +121,8 @@ public class App {
         }
         log.info("printing list 6 after delete operation");
         list.print();
+        int size=list.getSize();
+        log.info("size of list is: "+size);
     }
 
     public static void main(String[] args) {
