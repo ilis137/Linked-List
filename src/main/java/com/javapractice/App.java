@@ -80,14 +80,31 @@ public class App {
         list.append(70);
         log.info("printing list 6 with appended items");
         list.print();
-        int item=30;
-        log.info("searching item"+item);
-       Node<Integer> node= list.searchItem(item);
-       if(node==null){
-        log.info("item "+item+ " not found");
-       }else{
-        log.info("item "+item+ " found");
-       }
+        int item = 30;
+        log.info("searching item" + item);
+        Node<Integer> node = list.searchItem(item);
+        if (node == null) {
+            log.info("item " + item + " not found");
+        } else {
+            log.info("item " + item + " found");
+        }
+    }
+
+    public void demonstrateInsertNodeAfter() {
+        int itemToAdd = 40;
+        int itemToSearch = 30;
+        log.info("printing list 6 with appended items");
+        list.print();
+
+        boolean success = list.insertAfter(itemToSearch, itemToAdd);
+
+        if (success) {
+            log.info("item " + itemToSearch + "  found.added " + itemToAdd + "after it.");
+        } else {
+            log.info("item " + itemToSearch + " not found.unable to add " + itemToAdd);
+        }
+        log.info("printing list 6 after Insert operation");
+        list.print();
     }
 
     public static void main(String[] args) {
@@ -98,5 +115,6 @@ public class App {
         app.demonstrateDeleteFirstNode();
         app.demonstrateDeleteLastNode();
         app.demonstrateSearchItem();
+        app.demonstrateInsertNodeAfter();
     }
 }

@@ -14,11 +14,11 @@ public class LinkedList<T> {
     return false;
   }
 
-  public int getSize(){
-    int size=0;
-    Node<T> temp=head;
-    while(temp!=null){
-      temp=temp.getNext();
+  public int getSize() {
+    int size = 0;
+    Node<T> temp = head;
+    while (temp != null) {
+      temp = temp.getNext();
       size++;
     }
     return size;
@@ -69,46 +69,61 @@ public class LinkedList<T> {
     newNode.setNext(secondNode);
   }
 
-  public int pop(){
-    if(isEmpty()){
-      return -1;
+  public boolean insertAfter(T itemToSearch, T itemToAdd) {
+    log.info("searching item"+itemToSearch);
+
+    Node<T> oldNode = this.searchItem(itemToSearch);
+    if (oldNode != null) {
+      Node<T> newNode = new Node<T>(itemToAdd);
+      Node<T> tempNode = oldNode.getNext();
+      oldNode.setNext(newNode);
+      newNode.setNext(tempNode);
+      return true;
+    }else{
+      return false;
     }
-    Node<T> temp=head;
-    head=head.getNext();
-    temp.setNext(null);
-    return (int)temp.getData();
   }
 
-
-  public int popLast(){
-    Node<T> temp=head;
-    if(isEmpty()){
+  public int pop() {
+    if (isEmpty()) {
       return -1;
     }
-    if(temp.getNext()==null){
-      head=null;
-      return (int)temp.getData();
+    Node<T> temp = head;
+    head = head.getNext();
+    temp.setNext(null);
+    return (int) temp.getData();
+  }
+
+  public int popLast() {
+    Node<T> temp = head;
+    if (isEmpty()) {
+      return -1;
     }
-    while(temp.getNext().getNext()!=null){
-      temp=temp.getNext();
+    if (temp.getNext() == null) {
+      head = null;
+      return (int) temp.getData();
     }
-    int deletedItem=(int)temp.getNext().getData();
+    while (temp.getNext().getNext() != null) {
+      temp = temp.getNext();
+    }
+    int deletedItem = (int) temp.getNext().getData();
     temp.setNext(null);
     return deletedItem;
   }
 
-  public Node<T> searchItem(T item){
-      Node<T> temp=head;
-      if(this.isEmpty())
-        return null;
-      while(temp!=null){
-        if(temp.getData().equals(item)){
-          return temp;
-        }
-        temp=temp.getNext();
-      }
+  public Node<T> searchItem(T item) {
+    Node<T> temp = head;
+    if (this.isEmpty())
       return null;
+    while (temp != null) {
+      if (temp.getData().equals(item)) {
+        return temp;
+      }
+      temp = temp.getNext();
+    }
+    return null;
   }
+
   public void print() {
     if (this.isEmpty()) {
       log.info("List is empty!");
