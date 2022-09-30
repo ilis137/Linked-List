@@ -97,6 +97,18 @@ public class LinkedList<T> {
     return deletedItem;
   }
 
+  public Node<T> searchItem(T item){
+      Node<T> temp=head;
+      if(this.isEmpty())
+        return null;
+      while(temp!=null){
+        if(temp.getData().equals(item)){
+          return temp;
+        }
+        temp=temp.getNext();
+      }
+      return null;
+  }
   public void print() {
     if (this.isEmpty()) {
       log.info("List is empty!");
