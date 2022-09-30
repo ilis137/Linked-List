@@ -6,17 +6,17 @@ import org.apache.logging.log4j.Logger;
 public class App {
     private static final Logger log = LogManager.getLogger(App.class);
     LinkedList<Integer> list;
-
+    //add new items at the start of linked list
     public void demonstrateAddNode() {
 
         list = new LinkedList<Integer>();
         list.add(70);
         list.add(30);
-        list.add(56);
+        list.add(56);//adding ll the item one by one
         log.info("printing list 1 with added items");
         list.print();
     }
-
+    //add new items at the end of linked list
     public void demonstrateAppendNode() {
         list = new LinkedList<Integer>();
         list.append(56);
@@ -25,7 +25,7 @@ public class App {
         log.info("printing list 2 with appended items");
         list.print();
     }
-
+    //insert node at a given position in linked list
     public void demonstrateInsertNode() {
         list = new LinkedList<Integer>();
         list.append(56);
@@ -36,7 +36,7 @@ public class App {
         log.info("printing list 3 after inserting item at 2nd position");
         list.print();
     }
-
+    //delete first node in the linked list
     public void demonstrateDeleteFirstNode() {
         list = new LinkedList<Integer>();
         list.append(56);
@@ -54,7 +54,7 @@ public class App {
             list.print();
         }
     }
-
+    //delete last node in the linked list
     public void demonstrateDeleteLastNode() {
         list = new LinkedList<Integer>();
         list.append(56);
@@ -72,7 +72,7 @@ public class App {
             list.print();
         }
     }
-
+    //search an item in linked list
     public void demonstrateSearchItem() {
         list = new LinkedList<Integer>();
         list.append(56);
@@ -89,7 +89,7 @@ public class App {
             log.info("item " + item + " found");
         }
     }
-
+    //insert a node after a item in linked list
     public void demonstrateInsertNodeAfter() {
         int itemToAdd = 40;
         int itemToSearch = 30;
@@ -106,7 +106,7 @@ public class App {
         log.info("printing list 6 after Insert operation");
         list.print();
     }
-
+    //delete a item after a given item in linked list
     public void demonstrateDeleteItem() {
         int itemToDelete = 40;
 
@@ -124,6 +124,16 @@ public class App {
         int size=list.getSize();
         log.info("size of list is: "+size);
     }
+    //sorting a linked list
+    public void demonstrateSortedList(){
+       LinkedList<Integer> list1 = new SortedLinkedList<Integer>();
+        list1.add(56);
+        list1.add(30);
+        list1.add(70);
+        list1.add(40);
+        log.info("printing sorted list 7 with new items after sorting");
+        list1.print();
+    }
 
     public static void main(String[] args) {
         App app = new App();
@@ -135,5 +145,7 @@ public class App {
         app.demonstrateSearchItem();
         app.demonstrateInsertNodeAfter();
         app.demonstrateDeleteItem();
+        app.demonstrateSortedList();
     }
 }
+

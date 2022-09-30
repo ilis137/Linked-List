@@ -1,8 +1,8 @@
 package com.javapractice;
 
 public class Node<T>{
-    private T data;
-    private Node <T> next;
+    private T data;//key
+    private Node <T> next;//next node
     
       Node(T data){
         this.data=data;
