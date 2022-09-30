@@ -10,20 +10,33 @@ public class LinkedList<T> {
   public void add(T data) {
     Node<T> newNode = new Node<T>(data);
 
-    if(this.head==null){
-      head=newNode;
+    if (this.head == null) {
+      this.head = newNode;
       return;
     }
     newNode.setNext(head);
-    head=newNode;
-
+    head = newNode;
   }
 
-  public void print(){
-    Node<T> temp=head;
-    while(temp!=null){
+  public void append(T data) {
+    Node<T> newNode = new Node<T>(data);
+
+    if (this.head == null) {
+      this.head = newNode;
+      return;
+    }
+    Node<T> temp = head;
+    while (temp.getNext() != null) {
+      temp = temp.getNext();
+    }
+    temp.setNext(newNode);
+  }
+
+  public void print() {
+    Node<T> temp = head;
+    while (temp != null) {
       log.info(temp.getData());
-      temp=temp.getNext();
+      temp = temp.getNext();
     }
   }
 }
