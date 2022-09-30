@@ -14,6 +14,16 @@ public class LinkedList<T> {
     return false;
   }
 
+  public int getSize(){
+    int size=0;
+    Node<T> temp=head;
+    while(temp!=null){
+      temp=temp.getNext();
+      size++;
+    }
+    return size;
+  }
+
   public void add(T data) {
     Node<T> newNode = new Node<T>(data);
 
@@ -57,6 +67,13 @@ public class LinkedList<T> {
     }
     firstNode.setNext(newNode);
     newNode.setNext(secondNode);
+  }
+
+  public int pop(){
+    Node<T> temp=head;
+    head=head.getNext();
+    temp.setNext(null);
+    return (int)temp.getData();
   }
 
   public void print() {

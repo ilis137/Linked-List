@@ -29,5 +29,17 @@ public class App {
         list3.insert(30, 2);
         log.info("printing list 3 after inserting item at 2nd position");
         list3.print();
+
+
+        LinkedList<Integer> list4=new LinkedList<Integer>();
+        list4.append(56);
+        list4.append(30);
+        list4.append(70);
+        log.info("printing list 4 with appended items");
+        list4.print();
+        log.info("deleting first node");
+        int deletedItem=list4.pop();
+        log.info(deletedItem+" is deleted");
+        list4.print();
     }
 }
