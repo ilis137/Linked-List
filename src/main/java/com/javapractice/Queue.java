@@ -9,6 +9,12 @@ public class Queue<T> {
     list.append(item);
     front = list.getHead();
   }
+  //remove first element from queue.call internal linked list pop method.
+  public Object dequeue() {
+    Object removedItem=list.pop();
+    front = list.getHead();
+    return removedItem;
+  }
   //print the queue
   public void print() {
     list.print();

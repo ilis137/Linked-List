@@ -171,6 +171,14 @@ public class App {
         log.info("printing enqueued items in queue");
         queue.print();
     }
+    //dequeue item from queue
+    public void demonstrateQueueDequeue(){
+        int removedItem=(int)queue.dequeue();
+        log.info(removedItem+" dequeued from queue");
+        log.info("printing remaining items in queue");
+        queue.print();
+    }
+
     public static void main(String[] args) {
         App app = new App();
         app.demonstrateAddNode();
@@ -188,6 +196,7 @@ public class App {
         app.demonstrateStackPeek();
 
         app.demonstrateQueueEnqueue();
+        app.demonstrateQueueDequeue();
     }
 }
 
