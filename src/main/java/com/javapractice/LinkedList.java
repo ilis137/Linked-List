@@ -95,14 +95,14 @@ public class LinkedList<T> {
     }
   }
   //delete first node
-  public int pop() {
+  public Object pop() {
     if (isEmpty()) {
       return -1;
     }
     Node<T> temp = head;
     head = head.getNext();
     temp.setNext(null);
-    return (int) temp.getData();
+    return  temp.getData();
   }
   //delete last node
   public int popLast() {

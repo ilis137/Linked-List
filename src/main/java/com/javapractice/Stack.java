@@ -9,10 +9,14 @@ public class Stack<T> {
     top = list.getHead();
   }
   //pops item from top of stack .calls internal linked list pop method for it.
-  public int pop() {
-    int removedItem=list.pop();
+  public Object pop() {
+    Object removedItem=list.pop();
     top = list.getHead();
     return removedItem;
+  }
+  //get data at the top without removing it.
+  public T peek() {
+    return top.getData();
   }
   //print the stack
   public void print() {

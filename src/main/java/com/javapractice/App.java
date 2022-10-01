@@ -46,7 +46,7 @@ public class App {
         log.info("printing list 4 with appended items");
         list.print();
         log.info("deleting first node");
-        int deletedItem = list.pop();
+        int deletedItem = (int)list.pop();
         if (deletedItem == -1) {
             log.info("list is empty");
         } else {
@@ -135,7 +135,7 @@ public class App {
         log.info("printing sorted list 7 with new items after sorting");
         list1.print();
     }
-
+    //push a item on stack;
     public void demonstrateStackPush(){
         stack=new Stack<>();
         log.info("initialized stack");
@@ -145,15 +145,20 @@ public class App {
         log.info("printing pushed items in stack");
         stack.print();
     }
-
+    //pop a item from stack
     public void demonstrateStackPop() {
         log.info("poping first item from stack");
-        int removedItem=stack.pop();
+        int removedItem=(int)stack.pop();
         log.info(removedItem+" is popped from stack");
         log.info("printing stack");
         stack.print();
     }
-
+    //peek the first item on stack
+    public void demonstrateStackPeek() {
+        log.info("peeking stack");
+        int top=(int)stack.peek();
+        log.info(top+" is at the top of stack");
+    }
     public static void main(String[] args) {
         App app = new App();
         app.demonstrateAddNode();
@@ -168,6 +173,7 @@ public class App {
 
         app.demonstrateStackPush();
         app.demonstrateStackPop();
+        app.demonstrateStackPeek();
     }
 }
 
