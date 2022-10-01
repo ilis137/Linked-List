@@ -7,6 +7,7 @@ public class App {
     private static final Logger log = LogManager.getLogger(App.class);
     LinkedList<Integer> list;
     Stack<Integer> stack;
+    Queue<Integer> queue;
     //add new items at the start of linked list
     public void demonstrateAddNode() {
 
@@ -159,6 +160,17 @@ public class App {
         int top=(int)stack.peek();
         log.info(top+" is at the top of stack");
     }
+
+    //add a item in queue;
+    public void demonstrateQueueEnqueue(){
+        queue=new Queue<Integer>();
+        log.info("initialized queue");
+        queue.enqueue(56);
+        queue.enqueue(30);
+        queue.enqueue(70);
+        log.info("printing enqueued items in queue");
+        queue.print();
+    }
     public static void main(String[] args) {
         App app = new App();
         app.demonstrateAddNode();
@@ -174,6 +186,8 @@ public class App {
         app.demonstrateStackPush();
         app.demonstrateStackPop();
         app.demonstrateStackPeek();
+
+        app.demonstrateQueueEnqueue();
     }
 }
 
