@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 public class App {
     private static final Logger log = LogManager.getLogger(App.class);
     LinkedList<Integer> list;
+    Stack<Integer> stack;
     //add new items at the start of linked list
     public void demonstrateAddNode() {
 
@@ -136,12 +137,20 @@ public class App {
     }
 
     public void demonstrateStackPush(){
-        Stack<Integer> stack=new Stack<>();
+        stack=new Stack<>();
         log.info("initialized stack");
         stack.push(70);
         stack.push(30);
         stack.push(56);
         log.info("printing pushed items in stack");
+        stack.print();
+    }
+
+    public void demonstrateStackPop() {
+        log.info("poping first item from stack");
+        int removedItem=stack.pop();
+        log.info(removedItem+" is popped from stack");
+        log.info("printing stack");
         stack.print();
     }
 
@@ -158,6 +167,7 @@ public class App {
         app.demonstrateSortedList();
 
         app.demonstrateStackPush();
+        app.demonstrateStackPop();
     }
 }
 
