@@ -135,6 +135,16 @@ public class App {
         list1.print();
     }
 
+    public void demonstrateStackPush(){
+        Stack<Integer> stack=new Stack<>();
+        log.info("initialized stack");
+        stack.push(70);
+        stack.push(30);
+        stack.push(56);
+        log.info("printing pushed items in stack");
+        stack.print();
+    }
+
     public static void main(String[] args) {
         App app = new App();
         app.demonstrateAddNode();
@@ -146,6 +156,8 @@ public class App {
         app.demonstrateInsertNodeAfter();
         app.demonstrateDeleteItem();
         app.demonstrateSortedList();
+
+        app.demonstrateStackPush();
     }
 }
 

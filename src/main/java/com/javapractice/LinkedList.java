@@ -4,8 +4,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class LinkedList<T> {
+ 
   protected Node<T> head;
   private static final Logger log = LogManager.getLogger(App.class);
+
+  public Node<T> getHead() {
+    return head;
+  }
+  public void setHead(Node<T> head) {
+    this.head = head;
+  }
+
   //check if list is empty
   public boolean isEmpty() {
     if (head == null) {//if head is null list is size 0
@@ -112,7 +121,7 @@ public class LinkedList<T> {
     temp.setNext(null);
     return deletedItem;
   }
-  //deletea node after a given node
+  //deleted node after a given node
   public boolean delete(T itemToDelete){
     Node<T> foundNode = this.searchItem(itemToDelete);
     log.info("deleting item "+itemToDelete+" in list 6");
